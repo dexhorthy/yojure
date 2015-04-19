@@ -6,5 +6,6 @@
    :headers {"Content-Type" "text/plain"}
    :body "Hello Clojure, Hello Ring!"})
 
-(defn -main []
-  (jetty/run-jetty handler {:port 3000}))
+(defn -main [& [port]]
+  (let [port (Integer. (or port (env :port) 3000))]
+    (jetty/run-jetty (site #'app) {:port port :join? false})))
