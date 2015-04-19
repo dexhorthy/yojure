@@ -9,9 +9,23 @@
 {:status 200
 :headers {"Content-Type" "text/plain"}
 :body "Yo"})
-  (defroutes app
-    (GET "/" []
-      (splash)))
+
+
+
+
+(defn yo-handler [request]
+  (println "got request")
+  (let [params (:params request)]
+    (println "had params" params)
+    {:status 200 :body "whatever"}))
+
+(defroutes app
+  (GET "/" []
+    (splash))
+  (GET "/yo" []
+    (yo-handler)))
+
+
 (defn -main [& [port]]
   (let [port (Integer. (or port (env :port) 3000))]
-  (jetty/run-jetty (site #'app) {:port port :join? false})))
+    (jetty/run-jetty (site #'app) {:port port :join? false})))
