@@ -11,5 +11,5 @@
   :plugins [[environ/environ.lein "0.2.1"]]
   :hooks [environ.leiningen.hooks]
   :uberjar-name "yojure.jar"
-  :profiles {:production {:env {:production true}}})
-  ;:main yojure.web)
+  :profiles {:production {:env {:production true}}}
+  :main yojure.web)
