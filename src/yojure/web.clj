@@ -1,4 +1,4 @@
-(ns yojure.core
+(ns yojure.web
   (:require [ring.adapter.jetty :as jetty]))
 
 (defn handler [request]
