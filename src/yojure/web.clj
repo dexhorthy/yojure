@@ -13,17 +13,15 @@
 
 
 
-(defn yo-handler [request]
-  (println "got request")
-  (let [params (:params request)]
-    (println "had params" params)
-    {:status 200 :body "whatever"}))
+(defn yo-handler [params]
+  (println "got request with params" params)
+  {:status 200 :body "whatever"})
 
 (defroutes app
   (GET "/" []
     (splash))
-  (GET "/yo" []
-    (yo-handler)))
+  (GET "/yo" {params :params}
+    (yo-handler params)))
 
 
 (defn -main [& [port]]
