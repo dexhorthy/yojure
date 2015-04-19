@@ -17,7 +17,7 @@
   (try 
     (client/post "http://api.justyo.co/yo/" {:query-params {:username username :api_token token}})
     (catch Exception e 
-      (println "oh noes!" (.getClass e) (.getMessage e))))
+      (println "oh noes!" (.getClass e) (.getMessage e)))))
 
 (defn yo-handler [params]
   (println "got request with params" params)
