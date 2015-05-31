@@ -1,6 +1,6 @@
 # yojure
 
-A clojure client fo the yo api
+A tiny yo echo server, written in clojure
 
 ## Usage
 
